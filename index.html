@@ -6,52 +6,53 @@
     <title>TechAccess Future | Tecnologia e Acessibilidade Digital</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #0D0D0D; color: #FFFFFF; font-family: sans-serif;">
+<body>
 
     <!-- Link de Acessibilidade Oculto (Salto para o Conteúdo Principal via Teclado) -->
     <a href="#conteudo-principal" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">Ir para o conteúdo principal</a>
 
     <!-- Cabeçalho Principal (Acessível) -->
-    <header role="banner" style="border-bottom: 2px solid #00BFFF; padding: 20px;">
+    <header role="banner">
         <nav role="navigation" aria-label="Menu Principal">
-            <h1 style="color: #00BFFF; margin: 0; font-size: 1.8rem;">⚡ TechAccess Future</h1>
+            <h1 class="animacao-pulsar">⚡ TechAccess Future</h1>
         </nav>
     </header>
 
     <!-- Conteúdo Principal da Página -->
-    <main id="conteudo-principal" role="main" style="padding: 40px 20px; max-width: 1200px; margin: 0 auto;">
+    <main id="conteudo-principal" role="main">
         
         <!-- Seção 1: Divulgação e Conceito Futurista -->
-        <section aria-label="Apresentação" style="margin-bottom: 60px;">
-            <h2 style="color: #ADFF2F;">O Futuro da Web é para Todos</h2>
+        <section aria-label="Apresentação">
+            <h2>O Futuro da Web é para Todos</h2>
             <p style="font-size: 1.2rem; line-height: 1.6;">
                 Unindo tecnologia de ponta, design futurista e inclusão total. Nossa missão é quebrar barreiras digitais e garantir que nenhuma pessoa seja deixada para trás na evolução digital.
             </p>
         </section>
 
         <!-- Seção 2: Formulário de Arrecadação de Fundos Voluntários -->
-        <section aria-label="Arrecadação de Fundos" style="background-color: #1A1A1A; padding: 30px; border-radius: 8px; border-left: 4px solid #E4D00A; margin-bottom: 60px;">
-            <h2 style="color: #E4D00A; margin-top: 0;">Faça Parte da Mudança (Apoio Voluntário)</h2>
-            <p>Sua contribuição impulsiona o desenvolvimento de ferramentas digitais gratuitas e acessíveis para organizações sociais.</p>
+        <section aria-label="Arrecadação de Fundos" class="secao-arrecadacao">
+            <h2>Faça Parte da Mudança (Apoio Voluntário)</h2>
+            <p style="margin-bottom: 20px;">Sua contribuição impulsiona o desenvolvimento de ferramentas digitais gratuitas e acessíveis para organizações sociais.</p>
             
-            <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 20px; max-width: 500px;">
-                <div>
+            <form action="#" method="POST" style="display: flex; flex-direction: column;">
+                
+                <div class="campo-formulario">
                     <!-- Label explícito conectado ao ID do input para total acessibilidade -->
-                    <label for="nome" style="display: block; margin-bottom: 8px; font-weight: bold;">Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" required aria-required="true" style="width: 100%; padding: 10px; background-color: #0D0D0D; border: 1px solid #00BFFF; color: #FFFFFF; border-radius: 4px;">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required aria-required="true">
                 </div>
 
-                <div>
-                    <label for="email" style="display: block; margin-bottom: 8px; font-weight: bold;">E-mail do Doador:</label>
-                    <input type="email" id="email" name="email" required aria-required="true" style="width: 100%; padding: 10px; background-color: #0D0D0D; border: 1px solid #00BFFF; color: #FFFFFF; border-radius: 4px;">
+                <div class="campo-formulario">
+                    <label for="email">E-mail do Doador:</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
                 </div>
 
-                <div>
-                    <label for="valor" style="display: block; margin-bottom: 8px; font-weight: bold;">Valor do Apoio Voluntário (R$):</label>
-                    <input type="number" id="valor" name="valor" min="1" step="0.01" required aria-required="true" style="width: 100%; padding: 10px; background-color: #0D0D0D; border: 1px solid #00BFFF; color: #FFFFFF; border-radius: 4px;">
+                <div class="campo-formulario">
+                    <label for="valor">Valor do Apoio Voluntário (R$):</label>
+                    <input type="number" id="valor" name="valor" min="1" step="0.01" required aria-required="true">
                 </div>
 
-                <button type="submit" style="background-color: #E4D00A; color: #0D0D0D; border: none; padding: 12px 20px; font-size: 1.1rem; font-weight: bold; border-radius: 4px; cursor: pointer;">
+                <button type="submit" class="botao-enviar">
                     Confirmar Contribuição Voluntária 🚀
                 </button>
             </form>

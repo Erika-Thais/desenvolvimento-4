@@ -1,0 +1,158 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE CORES FUTURISTAS (Padrão de Alto Contraste WCAG 2.1)
+   ========================================================================== */
+:root {
+    --cor-fundo: #0D0D0D;         /* Preto Profundo: Base da nossa interface */
+    --cor-bloco: #1A1A1A;         /* Preto Claro: Destinado a cartões e seções */
+    --cor-texto: #FFFFFF;         /* Branco: Texto principal de leitura */
+    --cor-verde: #ADFF2F;         /* Verde Musgo/Lima Neon: Títulos e conceitos */
+    --cor-amarelo: #E4D00A;       /* Amarelo Mostarda: Destaques de ação e botões */
+    --cor-azul: #00BFFF;          /* Azul Celeste: Elementos interativos e bordas */
+    --cor-texto-escuro: #0D0D0D;  /* Usado para texto sobre o botão amarelo */
+}
+
+/* ==========================================================================
+   2. CONFIGURAÇÕES GERAIS E RESET DE PÁGINA
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* Indicador de Foco Acessível: Essencial para navegação por teclado */
+*:focus {
+    outline: 3px solid var(--cor-azul);
+    outline-offset: 4px;
+}
+
+/* ==========================================================================
+   3. ESTILIZAÇÃO COMPONENTIZADA (Estrutura e Formulário)
+   ========================================================================== */
+
+/* Cabeçalho */
+header {
+    border-bottom: 2px solid var(--cor-azul);
+    padding: 20px;
+    background-color: var(--cor-fundo);
+}
+
+header h1 {
+    color: var(--cor-azul);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Títulos com efeito futurista */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    color: var(--cor-verde);
+}
+
+/* Bloco do Formulário de Arrecadação */
+.secao-arrecadacao {
+    background-color: var(--cor-bloco);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid var(--cor-amarelo);
+    margin-bottom: 60px;
+}
+
+.secao-arrecadacao h2 {
+    color: var(--cor-amarelo);
+}
+
+/* Campos de Entrada (Inputs) */
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.campo-formulario label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.campo-formulario input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-azul);
+    color: var(--cor-texto);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.campo-formulario input:focus {
+    border-color: var(--cor-verde);
+    outline: none; /* Remove o padrão para usar o focus customizado do :focus */
+}
+
+/* Botão de Envio de Doador Voluntário */
+.botao-enviar {
+    background-color: var(--cor-amarelo);
+    color: var(--cor-texto-escuro);
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 500px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Animação Hover no Botão */
+.botao-enviar:hover {
+    background-color: #FFF350; /* Amarelo mais claro para feedback visual */
+    transform: scale(1.02); /* Leve crescimento futurista */
+}
+
+/* ==========================================================================
+   4. CLASSE DE ANIMAÇÃO E ACESSIBILIDADE WCAG
+   ========================================================================== */
+
+/* Animação pulsar futurista para elementos de destaque */
+.animacao-pulsar {
+    animation: pulsar 2s infinite ease-in-out;
+}
+
+@keyframes pulsar {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; transform: translateY(-2px); }
+    100% { opacity: 0.8; }
+}
+
+/* DIRETRIZ WCAG IMPORTANTE: Desativa animações se o usuário preferir menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .animacao-pulsar,
+    .botao-enviar,
+    .campo-formulario input {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
