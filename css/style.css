@@ -162,11 +162,13 @@ section h2 {
    ========================================================================== */
 
 /* Ajusta o grid para aceitar layouts de cartões maiores horizontais */
+/* Ajusta o contêiner para empilhar os cartões verticalmente (um abaixo do outro) */
 #feed-noticias {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    flex-direction: column; /* Força os itens a ficarem em coluna */
+    gap: 30px;              /* Espaçamento de 30px entre um cartão e outro */
 }
+
 
 /* O cartão da notícia agora se comporta como flexbox para alinhar texto e imagem de lado */
 .cartao-noticia {
