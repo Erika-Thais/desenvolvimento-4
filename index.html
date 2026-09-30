@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechAccess Future | Tecnologia e Acessibilidade Digital</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -22,22 +22,28 @@
     <main id="conteudo-principal" role="main">
         
         <!-- Seção 1: Divulgação e Conceito Futurista -->
-        <section aria-label="Apresentação">
+        <section aria-label="Apresentação" style="margin-bottom: 40px;">
             <h2>O Futuro da Web é para Todos</h2>
             <p style="font-size: 1.2rem; line-height: 1.6;">
                 Unindo tecnologia de ponta, design futurista e inclusão total. Nossa missão é quebrar barreiras digitais e garantir que nenhuma pessoa seja deixada para trás na evolução digital.
             </p>
         </section>
 
-        <!-- Seção 2: Formulário de Arrecadação de Fundos Voluntários -->
+        <!-- NOVO: Seção Dinâmica de Prestação de Contas -->
+        <section aria-label="Transparência Financeira" style="margin-bottom: 40px; background-color: #1A1A1A; padding: 30px; border-radius: 8px; border-left: 5px solid #ADFF2F;">
+            <h2 style="color: #ADFF2F;">Atualizações do Fundo Voluntário</h2>
+            <div id="dados-financeiros">
+                <!-- O JavaScript vai injetar os valores aqui de forma dinâmica -->
+            </div>
+        </section>
+
+        <!-- Seção 3: Formulário de Arrecadação de Fundos Voluntários -->
         <section aria-label="Arrecadação de Fundos" class="secao-arrecadacao">
             <h2>Faça Parte da Mudança (Apoio Voluntário)</h2>
             <p style="margin-bottom: 20px;">Sua contribuição impulsiona o desenvolvimento de ferramentas digitais gratuitas e acessíveis para organizações sociais.</p>
             
             <form action="#" method="POST" style="display: flex; flex-direction: column;">
-                
                 <div class="campo-formulario">
-                    <!-- Label explícito conectado ao ID do input para total acessibilidade -->
                     <label for="nome">Nome Completo:</label>
                     <input type="text" id="nome" name="nome" required aria-required="true">
                 </div>
@@ -58,6 +64,14 @@
             </form>
         </section>
 
+        <!-- NOVO: Seção Dinâmica de Notícias -->
+        <section aria-label="Notícias Tecnológicas" style="margin-bottom: 40px;">
+            <h2 style="color: #00BFFF; margin-bottom: 20px;">Notícias do Meio Digital</h2>
+            <div id="feed-noticias" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <!-- O JavaScript vai injetar os cartões de notícias aqui de forma dinâmica -->
+            </div>
+        </section>
+
     </main>
 
     <!-- Rodapé Acessível -->
@@ -65,5 +79,7 @@
         <p>&copy; 2026 TechAccess Future. Inclusão digital através da tecnologia.</p>
     </footer>
 
+    <!-- Carregamento da Lógica JavaScript -->
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
