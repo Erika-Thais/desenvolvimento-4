@@ -1,0 +1,27 @@
+{
+  "name": "desenvolvimento-4",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erika-Thais/desenvolvimento-4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Erika-Thais/desenvolvimento-4/issues"
+  },
+  "homepage": "https://github.com/Erika-Thais/desenvolvimento-4#readme",
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "vite": "^8.3.1"
+  }
+}
