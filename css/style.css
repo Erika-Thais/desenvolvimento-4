@@ -241,3 +241,64 @@ section h2 {
         height: 200px;
     }
 }
+
+/* ==========================================================================
+   6. ESTILOS DO MODAL DO FORMULÁRIO (Apoio Voluntário no Topo)
+   ========================================================================== */
+
+/* Botão de Destaque no Topo */
+.botao-topo-apoio {
+    background-color: var(--cor-amarelo);
+    color: var(--cor-texto-escuro);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-topo-apoio:hover {
+    background-color: #FFF350;
+}
+
+/* Fundo escuro cobrindo a tela inteira (Modal) */
+.modal-sobreposição {
+    display: none; /* Inicia oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo preto transparente */
+    z-index: 1000; /* Garante que fica na frente de tudo */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Caixa interna onde o formulário vive */
+.modal-conteudo {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin-bottom: 0 !important; /* Reseta margem inferior antiga */
+    box-shadow: 0 5px 25px rgba(0, 191, 255, 0.3); /* Sombra neon azul */
+}
+
+/* Botão de Fechar (X) */
+.botao-fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--cor-texto);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.botao-fechar-modal:hover {
+    color: var(--cor-verde);
+}
