@@ -1,0 +1,304 @@
+/* ==========================================================================
+   1. VARIÁVEIS DE CORES FUTURISTAS (Padrão de Alto Contraste WCAG 2.1)
+   ========================================================================== */
+:root {
+    --cor-fundo: #0D0D0D;         /* Preto Profundo: Base da nossa interface */
+    --cor-bloco: #1A1A1A;         /* Preto Claro: Destinado a cartões e seções */
+    --cor-texto: #FFFFFF;         /* Branco: Texto principal de leitura */
+    --cor-verde: #ADFF2F;         /* Verde Musgo/Lima Neon: Títulos e conceitos */
+    --cor-amarelo: #E4D00A;       /* Amarelo Mostarda: Destaques de ação e botões */
+    --cor-azul: #00BFFF;          /* Azul Celeste: Elementos interativos e bordas */
+    --cor-texto-escuro: #0D0D0D;  /* Usado para texto sobre o botão amarelo */
+}
+
+/* ==========================================================================
+   2. CONFIGURAÇÕES GERAIS E RESET DE PÁGINA
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* Indicador de Foco Acessível: Essencial para navegação por teclado */
+*:focus {
+    outline: 3px solid var(--cor-azul);
+    outline-offset: 4px;
+}
+
+/* ==========================================================================
+   3. ESTILIZAÇÃO COMPONENTIZADA (Estrutura e Formulário)
+   ========================================================================== */
+
+/* Cabeçalho */
+header {
+    border-bottom: 2px solid var(--cor-azul);
+    padding: 20px;
+    background-color: var(--cor-fundo);
+}
+
+header h1 {
+    color: var(--cor-azul);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Títulos com efeito futurista */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    color: var(--cor-verde);
+}
+
+/* Bloco do Formulário de Arrecadação */
+.secao-arrecadacao {
+    background-color: var(--cor-bloco);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid var(--cor-amarelo);
+    margin-bottom: 60px;
+}
+
+.secao-arrecadacao h2 {
+    color: var(--cor-amarelo);
+}
+
+/* Campos de Entrada (Inputs) */
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.campo-formulario label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.campo-formulario input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-azul);
+    color: var(--cor-texto);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.campo-formulario input:focus {
+    border-color: var(--cor-verde);
+    outline: none; /* Remove o padrão para usar o focus customizado do :focus */
+}
+
+/* Botão de Envio de Doador Voluntário */
+.botao-enviar {
+    background-color: var(--cor-amarelo);
+    color: var(--cor-texto-escuro);
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 500px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Animação Hover no Botão */
+.botao-enviar:hover {
+    background-color: #FFF350; /* Amarelo mais claro para feedback visual */
+    transform: scale(1.02); /* Leve crescimento futurista */
+}
+
+/* ==========================================================================
+   4. CLASSE DE ANIMAÇÃO E ACESSIBILIDADE WCAG
+   ========================================================================== */
+
+/* Animação pulsar futurista para elementos de destaque */
+.animacao-pulsar {
+    animation: pulsar 2s infinite ease-in-out;
+}
+
+@keyframes pulsar {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; transform: translateY(-2px); }
+    100% { opacity: 0.8; }
+}
+
+/* DIRETRIZ WCAG IMPORTANTE: Desativa animações se o usuário preferir menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .animacao-pulsar,
+    .botao-enviar,
+    .campo-formulario input {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* ==========================================================================
+   5. NOVOS ESTILOS PARA CARTÕES DE NOTÍCIAS COM IMAGENS E FONTES CUSTOMIZADAS
+   ========================================================================== */
+
+/* Ajusta o grid para aceitar layouts de cartões maiores horizontais */
+/* Ajusta o contêiner para empilhar os cartões verticalmente (um abaixo do outro) */
+#feed-noticias {
+    display: flex;
+    flex-direction: column; /* Força os itens a ficarem em coluna */
+    gap: 30px;              /* Espaçamento de 30px entre um cartão e outro */
+}
+
+
+/* O cartão da notícia agora se comporta como flexbox para alinhar texto e imagem de lado */
+.cartao-noticia {
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    border-top: 3px solid var(--cor-azul);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+}
+
+/* Área da imagem lateral */
+.noticia-container-imagem {
+    flex: 1;
+    min-width: 250px;
+    max-width: 320px;
+    display: flex;
+}
+
+.noticia-imagem-lateral {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+}
+
+/* Área de texto interna do cartão */
+.noticia-conteudo-texto {
+    flex: 2;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Mudança de fonte e destaque futurista para o título */
+.noticia-titulo-custom {
+    color: var(--cor-azul);
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo terminal de computadores */
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+/* Customização e leitura otimizada para o texto corrido */
+.noticia-corpo-custom {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #E0E0E0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.noticia-link-custom {
+    color: var(--cor-amarelo);
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Responsividade: Se a tela for pequena (celular), a imagem fica no topo e o texto embaixo */
+@media (max-width: 768px) {
+    .cartao-noticia {
+        flex-direction: column;
+    }
+    .noticia-container-imagem {
+        max-width: 100%;
+        height: 200px;
+    }
+}
+
+/* ==========================================================================
+   6. ESTILOS DO MODAL DO FORMULÁRIO (Apoio Voluntário no Topo)
+   ========================================================================== */
+
+/* Botão de Destaque no Topo */
+.botao-topo-apoio {
+    background-color: var(--cor-amarelo);
+    color: var(--cor-texto-escuro);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-topo-apoio:hover {
+    background-color: #FFF350;
+}
+
+/* Fundo escuro cobrindo a tela inteira (Modal) */
+.modal-sobreposição {
+    display: none; /* Inicia oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo preto transparente */
+    z-index: 1000; /* Garante que fica na frente de tudo */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Caixa interna onde o formulário vive */
+.modal-conteudo {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    margin-bottom: 0 !important; /* Reseta margem inferior antiga */
+    box-shadow: 0 5px 25px rgba(0, 191, 255, 0.3); /* Sombra neon azul */
+}
+
+/* Botão de Fechar (X) */
+.botao-fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--cor-texto);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.botao-fechar-modal:hover {
+    color: var(--cor-verde);
+}
