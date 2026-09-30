@@ -2,10 +2,11 @@
    LÓGICA PRINCIPAL DA APLICAÇÃO (Importando Componentes Funcionais)
    ========================================================================== */
 
+// Importa as funções de geração visual do arquivo de templates
 import { criarTemplateArrecadacao, criarTemplateNoticia } from './templates.js';
 
-// Dados da Prestação de Contas
-const dadosArrecadacao = {
+// Base de Dados: Alterado para 'let' para permitir que o valor seja somado e modificado
+let dadosArrecadacao = {
     totalArrecadado: 15420.00,
     metasAtingidas: [
         "Aquisição de 5 licenças de leitores de tela profissionais.",
@@ -14,7 +15,7 @@ const dadosArrecadacao = {
     ]
 };
 
-// Lista de Notícias do Meio Digital (Atualizada com 3 notícias completas)
+// Lista de Notícias do Meio Digital
 const noticiasDigitais = [
     {
         titulo: "Tradução de Pensamentos em Texto",
@@ -57,13 +58,12 @@ const noticiasDigitais = [
         altDescricao: " Close-up de fragmentos de manuscritos antigos com texturas envelhecidas."
     }
 ];
-
-
 /* ==========================================================================
-   FUNÇÃO PARA RENDERIZAR O CONTEÚDO USANDO TEMPLATES
+   FUNÇÃO PARA RENDERIZAR O CONTEÚDO NA TELA
    ========================================================================== */
 function carregarConteudoDinamico() {
     
+    // Injeta a área financeira usando a função do templates.js
     const containerFinanceiro = document.getElementById("dados-financeiros");
     if (containerFinanceiro) {
         containerFinanceiro.innerHTML = criarTemplateArrecadacao(
@@ -72,6 +72,7 @@ function carregarConteudoDinamico() {
         );
     }
 
+    // Injeta o feed de notícias
     const containerNoticias = document.getElementById("feed-noticias");
     if (containerNoticias) {
         containerNoticias.innerHTML = noticiasDigitais
@@ -80,33 +81,28 @@ function carregarConteudoDinamico() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", carregarConteudoDinamico);
 /* ==========================================================================
-   4. INTERATIVIDADE DO MODAL (Apoio Voluntário no Topo)
+   INTERATIVIDADE DO MODAL AND ENVIO DO FORMULÁRIO (Dinamismo de Valores)
    ========================================================================== */
 function configurarModal() {
     const btnAbrir = document.getElementById("btn-abrir-apoio");
     const btnFechar = document.getElementById("btn-fechar-apoio");
     const modal = document.getElementById("modal-arrecadacao");
+    const formulario = modal ? modal.querySelector("form") : null;
 
     if (btnAbrir && btnFechar && modal) {
-        // Abre o Modal ao clicar no botão do topo
         btnAbrir.addEventListener("click", () => {
             modal.style.display = "flex";
             modal.setAttribute("aria-hidden", "false");
-            // Acessibilidade: Move o foco do teclado direto para o campo de Nome
             document.getElementById("nome").focus();
         });
 
-        // Fecha o Modal ao clicar no "X"
         btnFechar.addEventListener("click", () => {
             modal.style.display = "none";
             modal.setAttribute("aria-hidden", "true");
-            // Acessibilidade: Devolve o foco para o botão que abriu
             btnAbrir.focus();
         });
 
-        // Fecha o Modal se o usuário clicar na área preta de fora da caixa
         modal.addEventListener("click", (e) => {
             if (e.target === modal) {
                 modal.style.display = "none";
@@ -115,7 +111,39 @@ function configurarModal() {
             }
         });
     }
+
+    // Interceptando o envio do formulário para somar o valor dinamicamente
+    if (formulario) {
+        formulario.addEventListener("submit", (evento) => {
+            evento.preventDefault();
+
+            // Captura os valores digitados
+            const nomeDoador = document.getElementById("nome").value;
+            const valorDoado = parseFloat(document.getElementById("valor").value);
+
+            // Verifica se o valor digitado é um número válido e maior que zero
+            if (!isNaN(valorDoado) && valorDoado > 0) {
+                // SOMANDO O VALOR DE VERDADE: adiciona o novo valor ao total anterior
+                dadosArrecadacao.totalArrecadado += valorDoado;
+
+                // MÁGICA DO FRONT-END: Chama a função que atualiza o valor na tela principal imediatamente
+                carregarConteudoDinamico();
+
+                // Exibe a mensagem de agradecimento
+                alert(`Obrigado pelo apoio, ${nomeDoador}! Sua contribuição voluntária de R$ ${valorDoado.toFixed(2)} foi somada ao nosso fundo com sucesso. 🚀`);
+            }
+
+            // Limpa os campos do formulário e fecha a janela flutuante
+            formulario.reset();
+            modal.style.display = "none";
+            modal.setAttribute("aria-hidden", "true");
+            if (btnAbrir) btnAbrir.focus();
+        });
+    }
 }
 
-// Inicializa a configuração do modal junto com o carregamento da página
-document.addEventListener("DOMContentLoaded", configurarModal);
+// Inicializa as funções após o carregamento completo do HTML
+document.addEventListener("DOMContentLoaded", () => {
+    carregarConteudoDinamico();
+    configurarModal();
+});
