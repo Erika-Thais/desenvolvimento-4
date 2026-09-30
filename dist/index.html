@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechAccess Future | Tecnologia e Acessibilidade Digital</title>
+  <script type="module" crossorigin src="./assets/main-D9Qke31G.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-BfKyALoZ.css">
+</head>
+<body>
+
+    <!-- Link de Acessibilidade Oculto -->
+    <a href="#conteudo-principal" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">Ir para o conteúdo principal</a>
+
+    <!-- Cabeçalho Principal com o Novo Botão no Topo -->
+    <header role="banner">
+        <nav role="navigation" aria-label="Menu Principal" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%;">
+            <h1 class="animacao-pulsar" style="margin: 0;">⚡ TechAccess Future</h1>
+            <!-- Botão do Topo para abrir o Apoio Voluntário -->
+            <button id="btn-abrir-apoio" class="botao-topo-apoio" aria-haspopup="dialog" aria-controls="modal-arrecadacao">
+                Apoio Voluntário 🚀
+            </button>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal da Página -->
+    <main id="conteudo-principal" role="main">
+        
+        <!-- Seção 1: Divulgação e Conceito Futurista -->
+        <section aria-label="Apresentação" style="margin-bottom: 40px;">
+            <h2>O Futuro da Web é para Todos</h2>
+            <p style="font-size: 1.2rem; line-height: 1.6;">
+                Unindo tecnologia de ponta, design futurista e inclusão total. Nossa missão é quebrar barreiras digitais e garantir que nenhuma pessoa seja deixada para trás na evolução digital.
+            </p>
+        </section>
+
+        <!-- Seção Dinâmica de Prestação de Contas -->
+        <section aria-label="Transparência Financeira" style="margin-bottom: 40px; background-color: #1A1A1A; padding: 30px; border-radius: 8px; border-left: 5px solid #ADFF2F;">
+            <h2 style="color: #ADFF2F;">Atualizações do Fundo Voluntário</h2>
+            <div id="dados-financeiros">
+                <!-- O JavaScript vai injetar os valores aqui -->
+            </div>
+        </section>
+
+        <!-- MODAL OCULTO: Formulário de Arrecadação de Fundos Voluntários -->
+        <div id="modal-arrecadacao" class="modal-sobreposição" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" aria-hidden="true">
+            <div class="modal-conteudo secao-arrecadacao">
+                <!-- Botão de Fechar o Modal -->
+                <button id="btn-fechar-apoio" class="botao-fechar-modal" aria-label="Fechar janela de apoio">&times;</button>
+                
+                <h2 id="modal-titulo">Faça Parte da Mudança</h2>
+                <p style="margin-bottom: 20px;">Sua contribuição impulsiona o desenvolvimento de ferramentas digitais gratuitas e acessíveis para organizações sociais.</p>
+                
+                <form action="#" method="POST" style="display: flex; flex-direction: column;">
+                    <div class="campo-formulario">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required aria-required="true">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="email">E-mail do Doador:</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="valor">Valor do Apoio Voluntário (R$):</label>
+                        <input type="number" id="valor" name="valor" min="1" step="0.01" required aria-required="true">
+                    </div>
+
+                    <button type="submit" class="botao-enviar">
+                        Confirmar Contribuição Voluntária 🚀
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Seção Dinâmica de Notícias -->
+        <section aria-label="Notícias Tecnológicas" style="margin-bottom: 40px;">
+            <h2 style="color: #00BFFF; margin-bottom: 20px;">Notícias do Meio Digital</h2>
+            <div id="feed-noticias">
+                <!-- O JavaScript vai injetar os cartões de notícias aqui -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé Acessível -->
+    <footer role="contentinfo" style="border-top: 1px solid #1A1A1A; padding: 20px; text-align: center; color: #888888;">
+        <p>&copy; 2026 TechAccess Future. Inclusão digital através da tecnologia.</p>
+    </footer>
+
+    <!-- Carregamento da Lógica JavaScript -->
+</body>
+</html>
